@@ -70,10 +70,10 @@ var Exposer = (function(){
         }
     };
 })();
-
+console.log(Exposer); // The object literal
 console.log("---------Revealing Module Pattern---------");
 Exposer.first();            // Output: This is a method I want to expose
 Exposer.second();           // Output: Inside a private method
 Exposer.third()             // Output: 11
-console.log(Exposer.fourth) // undefined
+console.log(Exposer.getPrivateVariable) // Output: the function literal
 Exposer.methodToExpose;     // undefined

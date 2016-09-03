@@ -48,10 +48,6 @@ var Exposer = (function(){
         console.log(privateVariable);
     };
 
-    var getPrivateVariable = function() {
-        return privateVariable;
-    };
-
     var privateMethod = function(){
         console.log('Inside a private method');
         privateVariable++;
@@ -69,8 +65,8 @@ var Exposer = (function(){
         first: methodToExpose,
         second: otherMethodIWantToExpose,
         third: printPrivateVariable,
-        fourth: function(){
-            getPrivateVariable()
+        getPrivateVariable: function(){
+            return privateVariable
         }
     };
 })();
@@ -79,5 +75,5 @@ console.log("---------Revealing Module Pattern---------");
 Exposer.first();            // Output: This is a method I want to expose
 Exposer.second();           // Output: Inside a private method
 Exposer.third()             // Output: 11
-console.log(Exposer.fourth) // Output: the function literal
+console.log(Exposer.fourth) // undefined
 Exposer.methodToExpose;     // undefined

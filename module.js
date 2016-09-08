@@ -102,7 +102,7 @@ var Module1 = (function(){
 
 /*
     Another way of doing it.
-    NOTE: Not recommend;
+    NOTE: Not recommend.
 */
 var Module2 = (function(){
 
@@ -120,7 +120,7 @@ var Module2 = (function(){
     Accessing Private Methods, Objects, Arrays, and everything else
 */
 var Module3 = (function(){
-
+    var publicVariable = 0;
     var privateArray = [];
 
     var _privateMethod = function(somethingOfInterest){
@@ -133,9 +133,18 @@ var Module3 = (function(){
     };
 
     return {
+        set publicVariable (value) {
+            publicVariable = value;
+        },
+        get publicVariable () {
+            return publicVariable;
+        },
         publicMethod: publicMethod
     };
 })();
+Module3.publicVariable = 'New vaddlue';
+console.log(Module3.publicVariable);
+
 Module3.publicMethod('Hello');
 
 /*
@@ -184,6 +193,85 @@ var Module4Two = (function(Module4){
 console.log(Module4);
 console.log(Module4Two);
 // Both will be the same
+
+/*
+    Getters and Setters
+*/
+console.log("----------Getters and Setters---------");
+var Module5 = (function () {
+
+    var publicVariable = 0;
+
+    function test () {
+        return publicVariable;
+    }
+
+    return {
+        set publicVariable (value) {
+            publicVariable = value;
+        },
+        get publicVariable () {
+            return publicVariable;
+        },
+        test: test
+    }
+})();
+
+Module5.publicVariable = 'New value';
+console.log(Module5.publicVariable);
+
+/*
+    More Getters and Setters
+*/
+
+var Module6 = function () {
+    var name = "one";
+    var setName = function(strName) {
+        name = strName;
+    };
+    var getName = function() {
+        return name;
+    };
+
+    var result = {
+        setName: setName,
+        getName: getName
+    };
+
+    Object.defineProperty(result, 'name', { get: getName });
+
+    return result;
+}();
+
+Module6.setName("two");
+
+alert("Module6.name is: " + Module6.name); // two
+alert("Module6.getName() is: " + Module6.getName()); // two
+
+/*
+    Even More Getters and Setters
+*/
+
+var Module7 = function () {
+    var name = "one";
+    var setName = function(strName) {
+        this.name = strName;
+    };
+    var getName = function() {
+        return this.name;
+    };
+
+    return {
+        name: name,
+        setName: setName,
+        getName: getName
+    };
+}();
+
+Module7.setName("two");
+
+alert("Module7.name is: " + Module7.name); // one
+alert("Module7.getName() is: " + Module7.getName()); // two
 
 /*
     Employee Example

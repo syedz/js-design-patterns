@@ -11,3 +11,4 @@ Todd Motto - https://toddmotto.com/mastering-the-module-pattern/
 Mozilla - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 JavaScript Is Sexy - http://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/
+http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/

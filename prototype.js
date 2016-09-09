@@ -217,7 +217,7 @@ console.log(o.m()) // 3
 
 var p = Object.create(o);
 // p is an object that inherits from o
-
+console.log(p);
 p.a = 4; // Create an own poperty on p
 console.log(p.m()); // 5
 // When p.m() is called, 'this' refers to p.

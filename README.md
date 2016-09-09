@@ -12,3 +12,7 @@ Mozilla - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_an
 
 JavaScript Is Sexy - http://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/
 http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/
+
+Closure-based patterns allow more information hiding, but may consume more memory if many instances are created.
+
+Prototype-based patterns are more memory efficient, but deep hierarchies can cause performance issues.
